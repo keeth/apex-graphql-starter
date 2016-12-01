@@ -4,7 +4,6 @@
   "description": "Apex GraphQL starter",
   "dependencies": {
     "apex.js": "^2.0.0",
-    "bluebird": "^3.4.6",
     "graphql": "^0.8.2",
     "ramda": "^0.22.1",
     "serialize-error": "^2.1.0"
