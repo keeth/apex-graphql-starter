@@ -102,7 +102,7 @@ The `gateway_lambda_role` policy should simply allow API Gateway to invoke your 
 
 # Bugs / Known Issues
 
-* Initial call to `infra apply` fails - should be fixed by https://github.com/hashicorp/terraform/issues/1178 in TF 0.8
+* Initial call to `infra apply` fails - should be fixed by hashicorp/terraform#1178 in TF 0.8
 * Subsequent calls to `infra apply` don't always appear to 'take' - if after applying changes to the endpoint using 
 Terraform you are not seeing the API Gateway changes take effect, you may need to manually re-deploy the resource to the 
 `dev` stage via the AWS Console.
