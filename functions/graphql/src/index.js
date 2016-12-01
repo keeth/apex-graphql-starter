@@ -1,15 +1,21 @@
 import λ from 'apex.js';
-import graphql from '../../../common/graphql';
 import R from 'ramda';
+import serializeError from 'serialize-error';
+import graphql from '../../../common/graphql';
 
-const requestPropMap = {
+const responseTransform = {
+  errors: R.map(serializeError)
+};
+
+const requestTransforms = {
   GET: R.prop('query'),
   POST: R.prop('body')
 };
 
-const unsupportedMethodError = Promise.reject(new Error('Only GET and POST are supported'));
-
 export default λ(event => {
-  const requestProp = requestPropMap[event.method];
-  return requestProp ? graphql(requestProp(event)) : unsupportedMethodError;
+  const requestTransform = requestTransforms[event.method];
+  const response = requestTransform ?
+    graphql(requestTransform(event)) :
+    Promise.resolve({errors: [new Error('Only GET and POST are supported')]});
+  return response.then(R.evolve(responseTransform))
 });
