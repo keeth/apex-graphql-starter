@@ -9,7 +9,7 @@ variable "gateway_lambda_role" {}
 
 resource "aws_api_gateway_rest_api" "graphql" {
   name = "graphql"
-  description = "A GraphQL endpoint"
+  description = "GraphQL endpoint"
 }
 
 resource "aws_api_gateway_deployment" "graphql" {

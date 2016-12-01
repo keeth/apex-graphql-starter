@@ -4,6 +4,3 @@ resource "aws_api_gateway_resource" "resource" {
   path_part = "${var.path}"
 }
 
-
-# CORS
-
