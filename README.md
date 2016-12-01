@@ -111,3 +111,4 @@ Terraform you are not seeing the API Gateway changes take effect, you may need t
 
 * Add 500 error handling to API gateway
 * Add Amazon RDS as a GraphQL backend?
+* GraphQL subscriptions (maybe via AWS IoT?)
