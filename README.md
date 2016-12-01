@@ -89,6 +89,11 @@ The `gateway_lambda_role` policy should simply allow API Gateway to invoke your 
 }
 ```
 
+# Run tests
+
+`npm test`
+
+
 # Resources
 
 [API Gateway / AWS Lambda guide](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started.html)
@@ -97,6 +102,12 @@ The `gateway_lambda_role` policy should simply allow API Gateway to invoke your 
 
 # Bugs / Known Issues
 
-If after applying changes to the endpoint using Terraform you are not seeing the API Gateway changes take effect, 
-you may need to manually re-deploy the resource to the `dev` stage via the AWS Console.
+* Initial call to `infra apply` fails - should be fixed by hashicorp/terraform#1178 in TF 0.8
+* Subsequent calls to `infra apply` don't always appear to 'take' - if after applying changes to the endpoint using 
+Terraform you are not seeing the API Gateway changes take effect, you may need to manually re-deploy the resource to the 
+`dev` stage via the AWS Console.
 
+# TODO
+
+* Add 500 error handling to API gateway
+* Add Amazon RDS as a GraphQL backend?
